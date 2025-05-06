@@ -79,15 +79,6 @@ export default function LoginPage() {
             </button>
           </div>
         </form>
-        <div className="text-center text-sm text-gray-600">
-          Don't have an account?{' '}
-          <button
-            onClick={() => router.push('/register')}
-            className="font-medium text-indigo-600 hover:text-indigo-500"
-          >
-            Register
-          </button>
-        </div>
       </div>
     </AuthLayout>
   )

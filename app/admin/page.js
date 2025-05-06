@@ -85,7 +85,7 @@ export default function AdminDashboard() {
       
       {/* Recent Registrations */}
       <div className="bg-white p-6 rounded-lg shadow">
-        <h3 className="text-lg font-medium text-gray-900 mb-4">Recent Registrations</h3>
+        <h3 className="text-lg font-medium text-gray-900 mb-4">All registrations</h3>
         <div className="overflow-x-auto">
           <table className="min-w-full divide-y divide-gray-200">
             <thead className="bg-gray-50">
