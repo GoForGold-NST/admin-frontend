@@ -1,0 +1,28 @@
+name: Node.js CI
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: self-hosted
+
+    strategy:
+      matrix:
+        node-version: [18.19.1]
+    env:
+      NEXT_PUBLIC_BACKEND: ${{secrets.NEXT_PUBLIC_BACKEND}}
+    steps:
+    - uses: actions/checkout@v4
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    - run: npm ci
+    - run: npm run build --if-present
+    - name: Change Directory
+      run: cd /home/ubuntu/admin-frontend/actions-runner/_work/admin-frontend/admin-frontend
+    - run: pm2 restart 1 --update-env
